@@ -1,0 +1,3 @@
+var ACCOUNT_SID = 'AC3650d879968b58bd2c6e054364dee7b8',
+	AUTH_TOKEN = '22c6316a00f547d3489b22fb4e9141db';
+var client = require('twilio')(ACCOUNT_SID, AUTH_TOKEN);
