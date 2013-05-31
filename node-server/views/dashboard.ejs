@@ -1,0 +1,48 @@
+<html lang = "en">
+	<head>
+		<title>SolPatch</title>
+	</head>
+
+	<body>
+		<h1>SolPatch</h1>
+		<p><%= message %><p>
+		<h2>Stations</h2>
+		<% for(var i=0; i < stations.length; i++) { %>
+
+			<h3>Station ID</h3> 
+			<p><%= stations[i].id %></p>
+			<br>
+			<h3>Phone Number</h3>
+			<p><%= stations[i].phonenumber %></p>
+			<br>
+			<h3>Coordinates</h3> 
+			<p><%=stations[i].coordinates.lat%></p>
+			<p><%=stations[i].coordinates.lon%></p>
+			<br>
+			<h3>Address</h3>
+			<p><%=stations[i].address.city%></p>
+			<p><%=stations[i].address.state%></p>
+			<p><%=stations[i].address.zip%></p>
+			<p><%=stations[i].address.country%></p>
+			<br>
+			<h3>Port</h3>
+			<form name="input" action="toggle_port" method="post">
+				<input type="hidden" name="id" value=<%= stations[i].id%>>
+				<input type="radio" name="portToggle" value="on"
+					<% if(stations[i].portState == true) { %>
+					<%= 'checked' %>
+					<% } %>
+				>On
+				<input type="radio" name="portToggle" value="off"
+					<% if(stations[i].portState == false) { %>
+					<%= 'checked' %>
+					<% } %>
+				>Off
+				<input type="submit" value="Toggle Port">
+			</form>
+			<br>
+
+		<% } %>
+	</body>
+
+</html>
